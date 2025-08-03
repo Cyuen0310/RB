@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recycle Store</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Main Page -->
+    <div id="main-page" class="container">
+        <header>
+            <h1>Recycle Store</h1>
+            <p>Welcome, User!</p>
+        </header>
+        
+        <div class="card" onclick="showPage('add-request')">
+            <h2>Add New Recycle Request</h2>
+            <p>Schedule a pickup for your recyclable items</p>
+        </div>
+        
+        <div class="card" onclick="showPage('records')">
+            <h2>Recycle Records</h2>
+            <p>View your past and current recycling requests</p>
+        </div>
+        
+        <div class="card">
+            <h2>Account Settings</h2>
+            <p>Update your profile information</p>
+        </div>
+    </div>
+    
+    <!-- Add Request Page -->
+    <div id="add-request" class="container hidden">
+        <div class="nav">
+            <a href="#" class="btn" onclick="showPage('main-page')">← Back</a>
+        </div>
+        
+        <header>
+            <h1>Add New Recycle Request</h1>
+        </header>
+        
+        <form>
+            <div class="form-group">
+                <label for="location">Location</label>
+                <input type="text" id="location" placeholder="Enter your address" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="booking-date">Booking Date</label>
+                <input type="date" id="booking-date" required>
+            </div>
+            
+            <h3>Items for Recycling</h3>
+            
+            <div id="items-container">
+                <div class="item-group">
+                    <div class="form-group">
+                        <label for="item-1">Item Description</label>
+                        <input type="text" id="item-1" placeholder="e.g. Plastic bottles, Cardboard" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="quantity-1">Quantity</label>
+                        <input type="number" id="quantity-1" min="1" value="1" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="photo-1">Photo of Item</label>
+                        <input type="file" id="photo-1" accept="image/*">
+                    </div>
+                </div>
+            </div>
+            
+            <button type="button" class="btn" onclick="addItem()">+ Add Another Item</button>
+            <button type="submit" class="btn">Submit Request</button>
+        </form>
+    </div>
+    
+    <!-- Recycle Records Page -->
+    <div id="records" class="container hidden">
+        <div class="nav">
+            <a href="#" class="btn" onclick="showPage('main-page')">← Back</a>
+        </div>
+        
+        <header>
+            <h1>Recycle Records</h1>
+        </header>
+        
+        <div class="form-group">
+            <input type="text" placeholder="Search requests...">
+        </div>
+        
+        <div class="form-group">
+            <select>
+                <option>All Requests</option>
+                <option>Pending</option>
+                <option>Completed</option>
+                <option>Cancelled</option>
+            </select>
+        </div>
+        
+        <div id="requests-list">
+            <div class="request-item">
+                <h3>Request #RC-2023-001</h3>
+                <p><strong>Date:</strong> October 15, 2023</p>
+                <p><strong>Location:</strong> 123 Green Street, Eco City</p>
+                <p><strong>Items:</strong> 3 items (Plastic bottles, Cardboard, Aluminum cans)</p>
+                <span class="status status-pending">Pending</span>
+            </div>
+            
+            <div class="request-item">
+                <h3>Request #RC-2023-002</h3>
+                <p><strong>Date:</strong> September 28, 2023</p>
+                <p><strong>Location:</strong> 123 Green Street, Eco City</p>
+                <p><strong>Items:</strong> 5 items (Glass jars, Paper, etc.)</p>
+                <span class="status status-completed">Completed</span>
+            </div>
+        </div>
+        
+        <button class="btn">Load More</button>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
