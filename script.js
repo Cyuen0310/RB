@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Load Google Maps API
     if (!document.querySelector('script[src*="googleapis.com/maps/api/js"]')) {
         const script = document.createElement('script');
-        script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBipBcpV7cns5aYYXgKmqq6PfZRfbzO4jc&libraries=places&callback=initGoogleMaps&language=en&region=HK';
+        script.src = 'https://maps.googleapis.com/maps/api/js?key={YOURAPI}&libraries=places&callback=initGoogleMaps&language=en&region=HK';
         script.async = true;
         script.defer = true;
         script.onerror = showErrorMap;
@@ -505,4 +505,5 @@ function resetRequestForm() {
     const minDate = new Date();
     minDate.setDate(today.getDate() + 2);
     document.getElementById("booking-date").min = minDate.toISOString().split('T')[0];
+
 }
